@@ -1,6 +1,6 @@
 {
   "name": "insides",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Small JavaScript utility library for working with nested objects.",
   "homepage": "https://github.com/szymonkaliski/insides",
   "repository": {

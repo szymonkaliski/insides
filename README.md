@@ -13,6 +13,8 @@ npm install insides --save
 ```javascript
   var buildObject = require("insides").buildObject;
   var reduceKV    = require("insides").reduceKV;
+  var getIn       = require("insides").getIn;
+  var setIn       = require("insides").setIn;
 
   var object = buildObject([
     [ [ "a", "b", "c" ], 1 ],
@@ -63,14 +65,14 @@ npm install insides --save
 Creates object from nestedArray:
 
 ```javascript
-objectMap = [ [ "a", 2 ] ]; // => { a: 2 }
+var object = buildObject([ [ "a", 2 ] ]); // => { a: 2 }
 
-objectMap = [ [ [ "a", "b" ], 2 ] ]; // => { a: { b: 2 } }
+var object = buildObject([ [ [ "a", "b" ], 2 ] ]); // => { a: { b: 2 } }
 
-objectMap = [ 
+var object = buildObject([
   [ [ "a", "b" ], 2 ],
   [ [ "a", "c" ], 3 ]
-]; // => { a: { b: 2, c: 3 } }
+]); // => { a: { b: 2, c: 3 } }
 ```
 
 Argument is array of two-element arrays, first element is key map for the value, and second argument is the value;
@@ -85,13 +87,13 @@ __Arguments__
 * `keys` - keys array, could be a string or a array of keys: `"a"`, `[ "a", "b" ]` or `"a.b"`
 * `notFound` - optional not found value, defaults to `undefined`
 
-Differences from `object.a.b.c`: 
+Differences from `object.a.b.c`:
 
 If `object.a` does not exists this will thor a `TypeError`, `getIn(object, [ "a", "b", "c" ])` returns `undefined`.
 
 ### setIn(object, keys, value/callback);
 
-Sets value in object for provided keys array. Overwrites everything that was in this key.
+Sets value in object for provided keys array. Overwrites everything that was in this key and returns new object (initial one is left unchanged).
 
 __Arguments__
 
@@ -128,7 +130,7 @@ __Arguments__
 
 ### mapKV(object, [depth], callback)
 
-Same as `eachKV` but returns new object instead of updating existing one.
+Same as `eachKV` but returns new object instead of updating existing one, returns new object (initial one is left unchanged).
 
 ### reduceKV(object, [depth], callback, [initialValue])
 
