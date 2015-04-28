@@ -113,7 +113,7 @@ var object = { "a": { "b": 3, "c": 2 } };
 var setObject = setIn(object, [ "a" ], { b: 5 });
 // => { "a": { "b": 5 } }
 
-var updateObject = setIn(object, [ "a" ], { b: 5 });
+var updateObject = updateIn(object, [ "a" ], { b: 5 });
 // => { "a": { "b": 5, "c": 2 } }
 
 ```
