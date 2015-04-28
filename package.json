@@ -1,0 +1,22 @@
+{
+  "name": "insides",
+  "version": "0.0.1",
+  "description": "Small JavaScript utility library for working with nested objects.",
+  "homepage": "https://github.com/szymonkaliski/insides",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szymonkaliski/insides.git"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "main": "index.js",
+  "author": "Szymon Kaliski <contact@treesmovethemost.com>",
+  "license": "ISC",
+  "dependencies": {
+    "extend": "^2.0.1"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
