@@ -38,3 +38,19 @@ test("complicated update-in", function(t) {
 
   t.end();
 });
+
+test("update-in with arrays", function(t) {
+  var testObject = {};
+
+  testObject = updateIn(testObject, [ "a", "b" ], function(key, value) {
+    return value ? value.push(1) : value = [ 1 ];
+  });
+
+  testObject = updateIn(testObject, [ "a", "b" ], function(key, value) {
+    return value ? value.push(2) : value = [ 2 ];
+  });
+
+  t.deepEqual(testObject, { a: { b: [ 1, 2 ] } });
+
+  t.end();
+});
