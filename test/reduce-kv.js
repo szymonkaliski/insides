@@ -38,5 +38,10 @@ test("reduce deep object", function(t) {
   }, 0);
   t.equal(reduced, 2 + 3 + 4);
 
+  reduced = reduceKV(testObject, 2, function(memo, key, value) {
+    return Math.max(memo, value);
+  }, 0);
+  t.equal(reduced, 4);
+
   t.end();
 });
